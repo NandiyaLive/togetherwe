@@ -1,0 +1,274 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.navbar {
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  svg {
+    height: 3rem;
+  }
+}
+
+.banner {
+  display: flex;
+  padding: 3.5rem 4.5rem;
+  background: rgb(129, 139, 233);
+  background: linear-gradient(
+    170deg,
+    rgba(129, 139, 233, 1) 40%,
+    rgba(228, 127, 218, 1) 100%
+  );
+  border-radius: 1rem;
+  gap: 3rem;
+
+  .left {
+    svg {
+      width: 22rem;
+    }
+  }
+
+  .right {
+    color: white;
+
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.25;
+    }
+
+    p {
+      font-size: 0.8rem;
+      margin: 1rem 0;
+      max-width: 82%;
+    }
+
+    button {
+      color: black;
+      background-color: white;
+      outline: none;
+      padding: 0.8rem 3rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 1.15rem;
+      box-shadow: 0px 19px 41px rgba(217, 217, 217, 0.5);
+      cursor: pointer;
+    }
+  }
+}
+
+.projects {
+  margin-top: 3rem;
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    svg {
+      height: 2.5rem;
+    }
+  }
+
+  .cards {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 33%));
+    grid-gap: 1rem;
+
+    .card {
+      padding: 1rem;
+      border-radius: 0.8rem;
+      background-color: white;
+      box-shadow: 0px 2px 48px rgba(23, 23, 23, 0.1);
+      position: relative;
+
+      .details-card {
+        img {
+          width: 100%;
+          height: 14rem;
+          object-fit: cover;
+          border-radius: 0.8rem;
+        }
+
+        .card-title {
+          font-size: 1.5rem;
+        }
+
+        .progress-bar {
+          margin-block: 0.75rem;
+          height: 5px;
+          width: 100%;
+          background-color: rgb(185, 185, 185);
+          border-radius: 5px;
+
+          .progress {
+            border-radius: 5px;
+          }
+        }
+
+        .amount {
+          font-weight: 500;
+          color: #585858;
+          span {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: black;
+          }
+        }
+
+        button {
+          width: 100%;
+          background-color: #818be9;
+          color: white;
+          outline: none;
+          padding: 0.8rem 3rem;
+          border: none;
+          border-radius: 0.5rem;
+          font-size: 0.8rem;
+          font-weight: 600;
+          margin-top: 1rem;
+          box-shadow: 0px 19px 41px rgba(217, 217, 217, 0.5);
+          cursor: pointer;
+        }
+      }
+
+      .donate-card {
+        position: absolute;
+        padding: 1rem;
+        border-radius: 0.8rem;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        visibility: hidden;
+        background-color: white;
+
+        .close-button {
+          cursor: pointer;
+          position: absolute;
+          right: 1rem;
+
+          svg {
+            height: 2.5rem;
+            width: 2.5rem;
+            background-color: rgb(221, 221, 221);
+            padding: 0.5rem;
+            border-radius: 100%;
+          }
+        }
+
+        h3 {
+          margin-top: 3rem;
+          max-width: 75%;
+        }
+
+        .donations {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+          margin-top: 1rem;
+          color: rgb(129, 129, 129);
+
+          span {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 1.15rem;
+            font-weight: 600;
+            
+            input[radio] {
+              height: 1.5rem;
+            }
+          }
+        }
+
+        button {
+          width: calc(100% - 2rem);
+          background-color: #F8C16F;
+          color: white;
+          outline: none;
+          padding: 0.8rem 3rem;
+          border: none;
+          border-radius: 0.5rem;
+          font-size: 0.8rem;
+          font-weight: 600;
+          margin-top: 1rem;
+          box-shadow: 0px 19px 41px rgba(217, 217, 217, 0.5);
+          cursor: pointer;
+          position: absolute;
+          inset: auto 1rem 1rem 1rem;
+        }
+      }
+
+      .sucess-card {
+        position: absolute;
+        padding: 1rem;
+        border-radius: 0.8rem;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        visibility: hidden;
+        background-color: white;
+      }
+    }
+  }
+  button {
+    width: max-content;
+    display: block;
+    margin: 1rem auto;
+    color: black;
+    background-color: white;
+    outline: none;
+    padding: 0.8rem 3rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0px 19px 41px rgba(217, 217, 217, 0.5);
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .banner {
+    flex-direction: column;
+    padding: 3rem;
+
+    .left {
+      svg {
+        display: block;
+        margin: auto;
+        width: 100%;
+      }
+    }
+  
+    .right {
+      text-align: center;
+  
+      p {
+        font-size: 0.8rem;
+        margin: 1rem auto;
+        max-width: 82%;
+      }
+    }
+  }
+}
