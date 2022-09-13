@@ -30,8 +30,6 @@ const Projects = () => {
     getData();
   }, []);
 
-  console.log(projects);
-
   return (
     <div className="projects">
       <div className="title">
