@@ -11,6 +11,7 @@ body {
   max-width: 72rem;
   margin: 0 auto;
   padding: 0 1rem;
+  background-color: #151515;
 }
 
 .navbar {
@@ -149,6 +150,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    color: white;
 
     svg {
       height: 2.5rem;
@@ -300,6 +302,7 @@ body {
       }
     }
   }
+  
   button {
     width: max-content;
     display: block;
@@ -312,7 +315,7 @@ body {
     border-radius: 0.5rem;
     font-size: 1rem;
     font-weight: 600;
-    box-shadow: 0px 19px 41px rgba(217, 217, 217, 0.5);
+    box-shadow: 0px 15px 35px rgba(217, 217, 217, 0.5);
     cursor: pointer;
   }
 }

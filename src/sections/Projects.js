@@ -3,12 +3,10 @@ import React, { useState, useEffect } from "react";
 import Card from "../components/Card";
 
 const client = axios.create({
-  baseURL: "https://07fplmn2nd.execute-api.us-west-2.amazonaws.com/dev",
+  baseURL: "https://togetherwe.vercel.app/api",
   headers: {
-    accept: "application/json",
-    "x-api-key": "RHtTMSSIsm4ecSAfaHq4N7HpaMOJBv5utDDhp1ch",
-    "Cache-Control": "public, s-maxage=60, stale-while-revalidate=30",
-    "Access-Control-Allow-Origin": true,
+    Accept: "application/json",
+    // "x-api-key": "RHtTMSSIsm4ecSAfaHq4N7HpaMOJBv5utDDhp1ch",
   },
 });
 
@@ -20,12 +18,12 @@ const Projects = () => {
   useEffect(() => {
     const getData = async () => {
       const response = await client.get("/fundraising");
-      setRes(response.data);
+      setRes(response);
 
-      if (res) {
-        setProjects(res.data);
-        setLoading(false);
-      }
+      setProjects(res.data);
+      setLoading(false);
+
+      console.log(res);
     };
     getData();
   }, []);
@@ -52,15 +50,15 @@ const Projects = () => {
         <h1>Projects</h1>
       </div>
 
-      {loading || !res ? (
-        <div class="spinner-box">
-          <div class="three-quarter-spinner"></div>
+      {loading || !projects ? (
+        <div className="spinner-box">
+          <div className="three-quarter-spinner"></div>
         </div>
       ) : (
         <div className="cards">
           {projects.map((project) => {
             console.log(project.id);
-            return <Card project={project} client={client} key={project.id} />;
+            return <Card project={response.data.data} client={client} key={response.data.data.id} />;
           })}
         </div>
       )}

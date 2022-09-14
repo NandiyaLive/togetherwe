@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 const Card = (props) => {
   const project = props.project;
@@ -7,6 +7,21 @@ const Card = (props) => {
 
   const [donate, setDonate] = useState(false);
   const [sucess, setSucess] = useState(false);
+  const [amounts, setAmounts] = useState(null);
+  const [donations, setDonations] = useState(null);
+
+  // const getDonations = ({id}) => {
+  //   const response = await client.get(`/donation?id=${id}`);
+  //   setAmounts(response.data)
+  // }
+
+  useEffect(() => {
+    const getAmounts = async () => {
+      const response = await client.get("/amounts");
+      setAmounts(response.data.data);
+    };
+    getAmounts();
+  }, []);
 
   return (
     <div className="card">
@@ -26,10 +41,14 @@ const Card = (props) => {
               </div>
               <h3>Select the amount that you want to donate</h3>
               <div className="donations">
-                <span>
-                  <input type="radio" name="donation" id="10" />
-                  <p>$10 </p>
-                </span>
+                {amounts.map((amount) => {
+                  return (
+                    <span>
+                      <input type="radio" name="donation" id={`$ ${amount}`} />
+                      <p>{amount}</p>
+                    </span>
+                  );
+                })}
               </div>
 
               <button
@@ -225,7 +244,7 @@ const Card = (props) => {
                   setSucess(false);
                 }}
               >
-                Donate Now
+                Done
               </button>
             </div>
           );
@@ -233,9 +252,9 @@ const Card = (props) => {
           return (
             <div className="details-card">
               <div className="card-img">
-                <img src={project.curls.small} alt="" />
+                <img src={project.urls.small} alt="" />
               </div>
-              <h1 className="card-title">{project.title}</h1>
+              <h1 className="card-title">{project.title || "Null"}</h1>
               <div className="progress-bar">
                 <div className="progress"></div>
               </div>
@@ -245,6 +264,7 @@ const Card = (props) => {
               <button
                 onClick={() => {
                   setDonate(true);
+                  getAmounts();
                 }}
               >
                 Donate Now

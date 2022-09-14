@@ -32,7 +32,7 @@ const Navbar = () => {
       </div>
 
       <div className="theme-toggle">
-        <button class="toggle" id="toggle"></button>
+        <button className="toggle" id="toggle"></button>
       </div>
     </div>
   );
