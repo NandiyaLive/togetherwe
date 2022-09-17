@@ -1,31 +1,29 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Card from "../components/Card";
-
-const client = axios.create({
-  baseURL: "https://togetherwe.vercel.app/api",
-  headers: {
-    Accept: "application/json",
-    // "x-api-key": "RHtTMSSIsm4ecSAfaHq4N7HpaMOJBv5utDDhp1ch",
-  },
-});
+import { client } from "../components/Axios";
 
 const Projects = () => {
   const [res, setRes] = useState(null);
   const [loading, setLoading] = useState(true);
   const [projects, setProjects] = useState(null);
+  const [amounts, setAmounts] = useState(null);
 
   useEffect(() => {
-    const getData = async () => {
-      const response = await client.get("/fundraising");
-      setRes(response);
+    (async () => {
+      try {
+        const fundRes = await axios.get("https://togetherwe.vercel.app/api/fundraising");
+        setProjects(fundRes.data.data);
 
-      setProjects(res.data);
-      setLoading(false);
+        const amountRes = await axios.get("https://togetherwe.vercel.app/api/amount");
+        setAmounts(amountRes.data.data);
 
-      console.log(res);
-    };
-    getData();
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+        setLoading(false);
+      }
+    })();
   }, []);
 
   return (
@@ -57,8 +55,7 @@ const Projects = () => {
       ) : (
         <div className="cards">
           {projects.map((project) => {
-            console.log(project.id);
-            return <Card project={response.data.data} client={client} key={response.data.data.id} />;
+            return <Card project={project} amounts={amounts} key={project.id} />;
           })}
         </div>
       )}
