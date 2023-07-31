@@ -418,9 +418,7 @@ const Banner = () => {
       <div className="right">
         <h1>We want give them a better tommorow!</h1>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s
+          We all want to give the next generation a better tomorrow. A tomorrow where they can live in peace, without hunger or poverty. A tomorrow where they can reach their full potential, regardless of their background.
         </p>
         <button>Get Started</button>
       </div>
